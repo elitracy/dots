@@ -84,7 +84,8 @@
 
     set clipboard^=unnamed
 
- 
+    set termguicolors
+
 " }}}
 
 " PLUGINS ---------------------------------------------------------------- {{{
@@ -103,22 +104,32 @@ call plug#begin('~/.vim/plugged')
     "Telescope
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
+    " Plug 'nvim-telescope/telescope.nvim'
 
     "Color Schemes
     Plug 'sainnhe/everforest'
     Plug 'NLKNguyen/papercolor-theme' 
     Plug 'joshdick/onedark.vim'
-     
+    Plug 'ellisonleao/gruvbox.nvim'
+    Plug 'phanviet/vim-monokai-pro'
+    Plug 'drewtempelmeyer/palenight.vim'
+    Plug 'sainnhe/sonokai'
+
     "Misc.
     Plug 'dense-analysis/ale'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    " Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'sheerun/vim-polyglot'
     Plug 'preservim/nerdcommenter'
     Plug 'kana/vim-submode'
     Plug 'simeji/winresizer'
     Plug 'mhinz/vim-startify'
     Plug 'frazrepo/vim-rainbow'
+    " Plug 'tpope/vim-surround'
+    " Plug 'tommcdo/vim-lion'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'  
+    Plug 'kassio/neoterm'
 
     "Status Line
     Plug 'itchyny/lightline.vim'
@@ -182,20 +193,29 @@ call plug#end()
     "source % shortcut
     nnoremap <leader>so :source %<cr>
 
-    " Find files using Telescope command-line sugar.
-    nnoremap <leader>ff <cmd>Telescope find_files<cr>
-    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-    nnoremap <leader>fs <cmd>Telescope grep_string<cr>
-    nnoremap <leader>fb <cmd>Telescope buffers<cr>
-    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+    " Find files using FZF 
+    nnoremap <leader>ff <cmd>Files<cr>
+    nnoremap <leader>fb <cmd>Buffers<cr>
 
     "new window resizing
-    nnoremap <leader>R :WinResizerStartResize<cr>
+    nnoremap <leader>r :WinResizerStartResize<cr>
 
     "buffer navigation
     nnoremap <leader>bn <cmd>bn<cr>
     nnoremap <leader>bp <cmd>bp<cr>
     nnoremap <leader>bd <cmd>bd<cr>
+
+    "Plug Update
+    nnoremap <leader>pu :PlugUpdate<cr>
+    nnoremap <leader>pi :PlugInstall<cr>
+    nnoremap <leader>pc :PlugClean<cr>
+    
+    "Terminal Commands
+    " nnoremap <leader><cr> :TREPLSendLine<cr>j " send current line and move down
+    " vnoremap <leader><cr> :TREPLSendSelection<cr> " send current selection
+    nnoremap <leader><CR> :Ttoggle<CR>
+    tnoremap <Esc> <C-\><C-n> 
+
 " }}}
 
 " VIMSCRIPT -------------------------------------------------------------- {{{
@@ -243,7 +263,7 @@ call plug#end()
     filetype plugin on 
 
     set background=dark
-    colorscheme onedark
+    colorscheme sonokai
 
     "start nvin with NERDTree open
     autocmd VimEnter * NERDTree 
@@ -254,7 +274,7 @@ call plug#end()
 
     "NERDTree Icons
     let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
+                \ 'Modified'  :'🔧',
                 \ 'Staged'    :'✚',
                 \ 'Untracked' :'✭',
                 \ 'Renamed'   :'➜',
@@ -303,6 +323,9 @@ call plug#end()
     let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
     let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 
+    let g:neoterm_default_mod='belowright' " open terminal in bottom split
+    let g:neoterm_size=16 " terminal split size
+    let g:neoterm_autoscroll=1 " scroll to the bottom when running a command
 " }}}
 
 " STATUS LINE ------------------------------------------------------------ {{{

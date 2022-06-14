@@ -10,5 +10,6 @@
     "graphql",
     "python",
     "vim"
-  ]
+  ],
+  "markdown-preview-enhanced.previewTheme": "gothic.css"
 }
