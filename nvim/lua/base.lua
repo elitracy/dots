@@ -5,6 +5,7 @@ vim.opt.encoding = 'utf8'
 vim.opt.fileencoding = 'utf8'
 
 vim.wo.number = true
+vim.opt.rnu = true
 
 vim.opt.title = true
 vim.opt.autoindent = true
@@ -28,12 +29,13 @@ vim.opt.wrap = false -- No wrap lines
 vim.opt.backspace = { 'start,eol,indent' }
 vim.opt.path:append { '**' } -- Finding files - search through subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.mouse = 'a'
 
 -- Underline
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
--- turn off pate mode when leaving insert
+-- turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = "*",
   command = "set nopaste"
@@ -41,3 +43,8 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { "r" }
+
+-- Autoinsert for terminal (VS Code-like feel)
+vim.api.nvim_create_autocmd({ 'BufWinEnter', 'WinEnter', 'BufNew', 'TermOpen' },
+  { pattern = "term://*", command = 'startinsert' })
+vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])

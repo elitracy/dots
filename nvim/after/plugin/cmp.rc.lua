@@ -1,7 +1,6 @@
 local status, cmp = pcall(require, "cmp")
-if (not status) then return end
+if (not status or not cmp) then return end
 local lspkind = require 'lspkind'
-
 
 cmp.setup({
   snippet = {
@@ -22,10 +21,20 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
+
   }),
   formatting = {
     format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-  }
+  },
+})
+
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })
 
 vim.cmd [[

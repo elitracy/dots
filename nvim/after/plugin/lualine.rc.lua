@@ -4,14 +4,14 @@ if (not status) then return end
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = 'horizon',
-    section_separators = { left = '', right = '' },
+    theme = 'ayu_mirage',
+    -- section_separators = { left = '|', right = '|' },
     component_separators = { left = '', right = '' },
     disabled_filetypes = {}
   },
   sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { 'branch' },
+    lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+    lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = { {
       'filename',
       file_status = true, -- displays file status (readonly status, modified status)
@@ -38,6 +38,21 @@ lualine.setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {},
+  tabline = {
+    lualine_a = {
+      {
+        "tabs",
+        separator = { right = '', left = '' },
+        padding = 4,
+        symbols = { alternate_file = "" },
+      },
+    },
+    lualine_b = { 'filename' },
+    lualine_z = { 'branch' },
+  },
   extensions = { 'fugitive' }
 }
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', "<Tab>", "<Cmd>tabnext<CR>", opts)
+vim.keymap.set('n', "<S-Tab>", "<Cmd>tabNext<CR>", opts)

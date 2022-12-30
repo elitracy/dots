@@ -7,8 +7,6 @@ local function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
 
-local fb_actions = require "telescope".extensions.file_browser.actions
-
 telescope.setup {
   defaults = {
     mappings = {
@@ -24,7 +22,10 @@ vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
       no_ignore = false,
-      hidden = true
+      hidden = true,
+      initial_mode = "normal",
+      sorting_strategy = 'ascending',
+      layout_config = { height = 100, width = 200, prompt_position = "top", preview_width = .60 },
     })
   end)
 vim.keymap.set('n', ';r', function()
@@ -36,11 +37,14 @@ end)
 vim.keymap.set('n', ';t', function()
   builtin.help_tags()
 end)
-vim.keymap.set('n', ';;', function()
-  builtin.resume()
-end)
 vim.keymap.set('n', ';e', function()
   builtin.diagnostics()
+end)
+vim.keymap.set('n', ';h', function()
+  builtin.oldfiles({
+    initial_mode = "normal",
+    layout_config = { height = 100, width = 200, prompt_position = "top", preview_width = .60 },
+  })
 end)
 
 telescope.load_extension("file_browser")
@@ -52,8 +56,10 @@ vim.keymap.set("n", "sf", function()
     respect_gitignore = false,
     hidden = true,
     grouped = true,
-    --    previewer = false,
+    preview = true,
     initial_mode = "normal",
-    layout_config = { height = 30 }
+    layout_config = { height = 100, width = 200, prompt_position = "top", preview_width = .60 },
+    sorting_strategy = 'ascending',
+    hijack_netrw = true,
   })
 end)

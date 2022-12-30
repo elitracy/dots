@@ -12,6 +12,14 @@ prettier.setup {
     "json",
     "scss",
     "less",
-    "markdown"
-  }
+    "markdown",
+    "python",
+    "html",
+    "cpp",
+    "hpp",
+    "rb",
+    "erb",
+    "ruby",
+    "eruby"
+  },
 }
