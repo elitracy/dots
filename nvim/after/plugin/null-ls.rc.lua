@@ -13,5 +13,9 @@ null_ls.setup {
   sources = {
     null_ls.builtins.diagnostics.fish,
     null_ls.builtins.formatting.autopep8,
+    -- null_ls.builtins.diagnostics.semgrep.with({
+    --   extra_args = { "--config", "auto" }
+    -- })
+
   }
 }

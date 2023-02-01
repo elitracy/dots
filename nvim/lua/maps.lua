@@ -20,7 +20,7 @@ keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
 
 -- Move between windows
-keymap.set('n', '<Space>', '<C-w>w')
+-- keymap.set('n', '<Space>', '<C-w>w')
 keymap.set('', 's<up>', '<C-w>k')
 keymap.set('', 's<right>', '<C-w>l')
 keymap.set('', 's<down>', '<C-w>j')

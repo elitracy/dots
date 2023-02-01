@@ -1,5 +1,7 @@
 vim.cmd('autocmd!')
 
+vim.g.mapleader = ' '
+
 vim.scriptencoding = 'utf8'
 vim.opt.encoding = 'utf8'
 vim.opt.fileencoding = 'utf8'

@@ -25,7 +25,7 @@ vim.keymap.set('n', ';f',
       hidden = true,
       initial_mode = "normal",
       sorting_strategy = 'ascending',
-      layout_config = { height = 100, width = 200, prompt_position = "top", preview_width = .60 },
+      layout_config = { height = 30, width = 150, prompt_position = "top", preview_width = .60 },
     })
   end)
 vim.keymap.set('n', ';r', function()
@@ -43,7 +43,8 @@ end)
 vim.keymap.set('n', ';h', function()
   builtin.oldfiles({
     initial_mode = "normal",
-    layout_config = { height = 100, width = 200, prompt_position = "top", preview_width = .60 },
+    sorting_strategy = 'ascending',
+    layout_config = { height = 30, width = 150, prompt_position = "top", preview_width = .60 },
   })
 end)
 
@@ -58,7 +59,7 @@ vim.keymap.set("n", "sf", function()
     grouped = true,
     preview = true,
     initial_mode = "normal",
-    layout_config = { height = 100, width = 200, prompt_position = "top", preview_width = .60 },
+    layout_config = { height = 30, width = 150, prompt_position = "top", preview_width = .60 },
     sorting_strategy = 'ascending',
     hijack_netrw = true,
   })

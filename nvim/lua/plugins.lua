@@ -13,8 +13,6 @@ packer.startup(function(use)
   use 'mnishz/colorscheme-preview.vim'
   use { 'navarasu/onedark.nvim' }
   use { 'svrana/neosolarized.nvim', requires = { 'tjdevries/colorbuddy.nvim' } }
-  use 'folke/tokyonight.nvim'
-  use { 'shaunsingh/oxocarbon.nvim', branch = 'fennel' }
   use 'michaeldyrynda/carbon'
   use 'GustavoPrietoP/doom-themes.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
@@ -38,7 +36,6 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter', -- Treesitter
     run = ':TSUpdate'
   }
-  use 'tree-sitter/tree-sitter-ruby'
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'PontusPersson/pddl.vim'
@@ -51,7 +48,12 @@ packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use 'xiyaowong/nvim-transparent'
 
-  use 'glepnir/lspsaga.nvim' -- nice dialogue boxes
+  -- use "glepnir/lspsaga.nvim"
+  use({
+    "glepnir/lspsaga.nvim",
+    -- branch = "main",
+  })
+
 
   use 'jose-elias-alvarez/null-ls.nvim' -- Use nvim as langauge server
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for nvim built-in LSP client
@@ -71,4 +73,5 @@ packer.startup(function(use)
   use 'anuvyklack/pretty-fold.nvim'
   use 'chipsenkbeil/distant.nvim'
   use 'kenn7/vim-arsync'
+  use 'github/copilot.vim'
 end)

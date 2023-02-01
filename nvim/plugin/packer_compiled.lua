@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/colorscheme-preview.vim",
     url = "https://github.com/mnishz/colorscheme-preview.vim"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
   ["distant.nvim"] = {
     loaded = true,
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/distant.nvim",
@@ -165,6 +170,7 @@ _G.packer_plugins = {
     url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lspsaga.nvim"] = {
+    config = { "\27LJ\2\nü\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\24server_filetype_map\1\0\0\1\0\6\15typescript\15typescript\neruby\berb\bcpp\bcpp\truby\arb\vpython\apy\vprolog\apl\nsetup\flspsaga\frequire\0" },
     loaded = true,
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
@@ -254,11 +260,6 @@ _G.packer_plugins = {
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
   },
-  ["oxocarbon.nvim"] = {
-    loaded = true,
-    path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
-    url = "https://github.com/shaunsingh/oxocarbon.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -294,16 +295,6 @@ _G.packer_plugins = {
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["tree-sitter-ruby"] = {
-    loaded = true,
-    path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/tree-sitter-ruby",
-    url = "https://github.com/tree-sitter/tree-sitter-ruby"
-  },
   ["vim-arsync"] = {
     loaded = true,
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/vim-arsync",
@@ -317,6 +308,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+try_loadstring("\27LJ\2\nü\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\24server_filetype_map\1\0\0\1\0\6\15typescript\15typescript\neruby\berb\bcpp\bcpp\truby\arb\vpython\apy\vprolog\apl\nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
+time([[Config for lspsaga.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
