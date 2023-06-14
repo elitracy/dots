@@ -1,0 +1,31 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username\
+$hostname\
+$localip\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$memory_usage\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$os\
+$container\
+$shell\
+$character
+"""
+add_newline = true
+
+[character] # The name of the module we are configuring is 'character'
+# success_symbol = '[](bold white)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+# error_symbol = '[](bold red)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
