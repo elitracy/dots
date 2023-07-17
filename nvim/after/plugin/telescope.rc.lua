@@ -10,6 +10,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
     defaults = {
+        shorten_path = true,
         mappings = {
             n = {
                 ["q"] = actions.close

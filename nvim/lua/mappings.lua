@@ -5,7 +5,7 @@ map.set('n', 'x', '"_x')
 -- Select all
 map.set('n', '<C-a>', 'gg<S-v>G')
 
--- Tab navigation 
+-- Tab navigation
 map.set('n', '<leader>b', '<cmd> tabedit <CR>')
 map.set('n', '<leader>x', '<cmd> tabclose <CR>')
 map.set('n', '<tab>', '<cmd> tabnext <CR>')
@@ -21,7 +21,7 @@ map.set('n', '<C-j>', '<cmd> NvimTmuxNavigateDown <CR>')
 map.set('n', '<C-k>', '<cmd> NvimTmuxNavigateUp <CR>')
 map.set('n', '<C-l>', '<cmd> NvimTmuxNavigateRight <CR>')
 
--- Resize pane 
+-- Resize pane
 map.set('n', '<leader>s<left>', '<C-w><')
 map.set('n', '<leader>s<right>', '<C-w>>')
 map.set('n', '<leader>s<up>', '<C-w>+')
@@ -29,4 +29,6 @@ map.set('n', '<leader>s<down>', '<C-w>-')
 
 map.set('n', '<leader>s=', '<C-w>=')
 
-
+map.set('n', '<leader>ll', '<cmd>LspLog <CR> | G')
+map.set('n', '<leader>lr', '<cmd>LspRestart <CR>')
+map.set('n', '<leader>li', '<cmd>LspInfo <CR>')

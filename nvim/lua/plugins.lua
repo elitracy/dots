@@ -31,6 +31,7 @@ require('packer').startup(function(use)
             'JoosepAlviste/nvim-ts-context-commentstring'
         }
     }
+    use 'tpope/vim-abolish'
 
     use({
         -- Preview markdown files

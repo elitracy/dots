@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["ayu-vim"] = {
-    loaded = true,
-    path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/ayu-vim",
-    url = "https://github.com/ayu-theme/ayu-vim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -145,6 +140,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/rose-pine/neovim"
+  },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -220,6 +220,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/transparent.nvim",
     url = "https://github.com/xiyaowong/transparent.nvim"
+  },
+  ["vim-abolish"] = {
+    loaded = true,
+    path = "/Users/elitracy/.local/share/nvim/site/pack/packer/start/vim-abolish",
+    url = "https://github.com/tpope/vim-abolish"
   }
 }
 
