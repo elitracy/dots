@@ -21,6 +21,10 @@ require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
+    use {
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig"           -- stylize context bar
+    }
     use 'kyazdani42/nvim-web-devicons'               -- File icons
     use 'nvim-telescope/telescope.nvim'              -- Finding files
     use 'nvim-telescope/telescope-file-browser.nvim' -- Better filebrowser
