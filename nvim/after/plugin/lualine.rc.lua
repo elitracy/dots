@@ -4,7 +4,7 @@ require('lualine').setup {
         theme = 'auto',
         section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
-        disabled_filetypes = {}
+        disabled_filetypes = { "NvimTree" }
     },
     sections = {
         lualine_a = { 'mode' },
@@ -12,7 +12,7 @@ require('lualine').setup {
         lualine_c = { {
             'filename',
             file_status = true, -- displays file status (readonly status, modified status)
-            path = 0            -- 0 = just filename, 1 = relative path, 2 = absolute path
+            path = 1            -- 0 = just filename, 1 = relative path, 2 = absolute path
         } },
         lualine_x = {
             {
@@ -43,7 +43,24 @@ require('lualine').setup {
         lualine_z = {}
     },
     tabline = {
-        lualine_a = { 'buffers' },
+        lualine_a = {
+            {
+                'buffers',
+                mode = 0,
+                show_filename_only = true,
+                max_length = vim.o.columns * 1 / 5,
+                use_mode_colors = false,
+
+                filetype_names = {
+                    TelescopePrompt = 'Telescope',
+                    dashboard = 'Dashboard',
+                    packer = 'Packer',
+                    fzf = 'FZF',
+                    alpha = 'Alpha',
+                    NvimTree = 'File Tree'
+                }
+            }
+        },
         lualine_b = { 'navic' },
     },
     extensions = { 'fugitive' }

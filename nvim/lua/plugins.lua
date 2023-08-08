@@ -28,14 +28,17 @@ require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'               -- File icons
     use 'nvim-telescope/telescope.nvim'              -- Finding files
     use 'nvim-telescope/telescope-file-browser.nvim' -- Better filebrowser
-    use 'windwp/nvim-autopairs'                      -- Pairs for parenthesis, brackets, etc.
-    use 'windwp/nvim-ts-autotag'                     -- Pairs for typescript
-    use { 'numToStr/Comment.nvim',                   -- Smart commenting
+    use 'ThePrimeagen/harpoon'
+
+    use 'windwp/nvim-autopairs'    -- Pairs for parenthesis, brackets, etc.
+    use 'windwp/nvim-ts-autotag'   -- Pairs for typescript
+    use { 'numToStr/Comment.nvim', -- Smart commenting
         requires = {
             'JoosepAlviste/nvim-ts-context-commentstring'
         }
     }
     use 'tpope/vim-abolish'
+    use "folke/todo-comments.nvim"
 
     use({
         -- Preview markdown files
@@ -45,8 +48,9 @@ require('packer').startup(function(use)
         ft = { "markdown" },
     })
 
-    use 'lewis6991/gitsigns.nvim'             -- Number column git signs
-    use 'dinhhuy258/git.nvim'                 -- For git blame & browse
+    use 'lewis6991/gitsigns.nvim' -- Number column git signs
+    use 'dinhhuy258/git.nvim'     -- For git blame & browse
+    use 'kdheepak/lazygit.nvim'
 
     use { "alexghergh/nvim-tmux-navigation" } -- Tmux-vim integration
     use 'nvim-tree/nvim-tree.lua'             -- File tree
@@ -55,5 +59,6 @@ require('packer').startup(function(use)
     --
     -- Color themes
     use 'rose-pine/neovim'
+    use { "catppuccin/nvim", as = "catppuccin" }
     use 'Shatur/neovim-ayu'
 end)

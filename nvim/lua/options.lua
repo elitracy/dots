@@ -33,7 +33,8 @@ opt.path:append { '**' }
 opt.wildignore:append { '*/node_modules/*' }
 opt.mouse = 'a'
 opt.pumheight = 10
-opt.ttimeoutlen = 10
+-- opt.ttimeoutlen = 0
+-- opt.timeoutlen = 10
 
 -- MacOS
 opt.clipboard:append { 'unnamedplus' }

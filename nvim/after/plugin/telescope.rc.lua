@@ -7,6 +7,7 @@ local function telescope_buffer_dir()
 end
 
 local fb_actions = require "telescope".extensions.file_browser.actions
+local harpoon_t = require "telescope".load_extension('harpoon')
 
 telescope.setup {
     defaults = {
@@ -73,10 +74,22 @@ vim.keymap.set('n', '<leader>fh', function()
     builtin.help_tags()
 end)
 
+vim.keymap.set('n', '<leader>fs', function()
+    builtin.lsp_workspace_symbols()
+end)
+
 vim.keymap.set('n', '<leader>ft', function()
     builtin.colorscheme()
 end)
 
 vim.keymap.set('n', '<leader>fo', function()
     builtin.oldfiles()
+end)
+
+vim.keymap.set('n', '<leader>ho', function()
+    harpoon_t.marks()
+end)
+
+vim.keymap.set('n', '<leader>ha', function()
+    require('harpoon.mark').add_file()
 end)

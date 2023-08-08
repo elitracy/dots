@@ -8,3 +8,8 @@ end, { expr = true })
 
 -- Toggle in VISUAL mode
 vim.keymap.set('x', '?', '<Plug>(comment_toggle_linewise_visual)')
+
+local todo_comments = require('todo-comments').setup {}
+
+-- TODO HACK FIX
+vim.keymap.set('n', '<leader>tt', "<cmd> TodoTelescope <CR>")

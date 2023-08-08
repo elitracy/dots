@@ -26,3 +26,6 @@ require('git').setup({
     -- Default target branch when create a pull request
     target_branch = "master",
 })
+
+
+vim.keymap.set('n', '<leader>gl', '<cmd> LazyGit <CR>')

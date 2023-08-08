@@ -17,7 +17,7 @@ end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
     -- Mappings.
@@ -30,32 +30,31 @@ local on_attach = function(client, bufnr)
     -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
-protocol.CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
+protocol.CompletionItemKind = { '', -- Text
+    '',                           -- Method
+    '',                           -- Function
+    '',                           -- Constructor
+    '',                           -- Field
+    '',                           -- Variable
+    '',                           -- Class
+    'ﰮ',                           -- Interface
+    '',                           -- Module
+    '',                           -- Property
+    '',                           -- Unit
+    '',                           -- Value
+    '',                           -- Enum
+    '',                           -- Keyword
+    '﬌',                           -- Snippet
+    '',                           -- Color
+    '',                           -- File
+    '',                           -- Reference
+    '',                           -- Folder
+    '',                           -- EnumMember
+    '',                           -- Constant
+    '',                           -- Struct
+    '',                           -- Event
+    'ﬦ',                           -- Operator
+    '',                           -- TypeParameter
 }
 
 -- Set up completion using nvim_cmp with LSP source
@@ -128,6 +127,16 @@ nvim_lsp.clangd.setup {
 }
 
 nvim_lsp.svelte.setup {
+    on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+
+        enable_format_on_save(client, bufnr)
+    end,
+    capabilities = capabilities
+}
+
+nvim_lsp.ocamllsp.setup {
+
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
 

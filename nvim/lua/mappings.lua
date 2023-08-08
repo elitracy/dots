@@ -6,8 +6,8 @@ map.set('n', 'x', '"_x')
 map.set('n', '<C-a>', 'gg<S-v>G')
 
 -- Tab navigation
-map.set('n', '<leader>b', '<cmd> tabedit <CR>')
-map.set('n', '<leader>x', '<cmd> tabclose <CR>')
+map.set('n', '<leader>b', '<cmd> enew <CR>')
+map.set('n', '<leader>x', '<cmd> bd <CR>')
 map.set('n', '<tab>', '<cmd> bnext <CR>')
 map.set('n', '<S-tab>', '<cmd> bNext <CR>')
 
