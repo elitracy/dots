@@ -3,93 +3,84 @@ local actions = require('telescope.actions')
 local builtin = require("telescope.builtin")
 
 local function telescope_buffer_dir()
-    return vim.fn.expand('%:p:h')
+	return vim.fn.expand('%:p:h')
 end
 
 local fb_actions = require "telescope".extensions.file_browser.actions
-local harpoon_t = require "telescope".load_extension('harpoon')
 
 telescope.setup {
-    defaults = {
-        shorten_path = true,
-        mappings = {
-            n = {
-                ["q"] = actions.close
-            },
-        },
-        layout_config = {
-            width = .8
-        },
-        initial_mode = 'normal'
-    },
-    pickers = {
-        colorscheme = {
-            enable_preview = true
-        }
-    },
-    extensions = {
-        file_browser = {
-            theme = "dropdown",
-            -- disables netrw and use telescope-file-browser in its place
-            hijack_netrw = true,
-            mappings = {
-                -- your custom insert mode mappings
-                ["i"] = {
-                    ["<C-w>"] = function() vim.cmd('normal vbd') end,
-                },
-                ["n"] = {
-                    -- your custom normal mode mappings
-                    ["a"] = fb_actions.create,
-                    ["u"] = fb_actions.goto_parent_dir,
-                    ["/"] = function()
-                        vim.cmd('startinsert')
-                    end
-                },
-            },
-        },
-    },
+	defaults = {
+		shorten_path = true,
+		mappings = {
+			n = {
+				["q"] = actions.close
+			},
+		},
+		layout_config = {
+			width = .8
+		},
+		initial_mode = 'normal'
+	},
+	pickers = {
+		colorscheme = {
+			enable_preview = true
+		}
+	},
+	extensions = {
+		file_browser = {
+			theme = "dropdown",
+			-- disables netrw and use telescope-file-browser in its place
+			hijack_netrw = true,
+			mappings = {
+				-- your custom insert mode mappings
+				["i"] = {
+					["<C-w>"] = function() vim.cmd('normal vbd') end,
+				},
+				["n"] = {
+					-- your custom normal mode mappings
+					["a"] = fb_actions.create,
+					["u"] = fb_actions.goto_parent_dir,
+					["/"] = function()
+						vim.cmd('startinsert')
+					end
+				},
+			},
+		},
+	},
 }
 
 telescope.load_extension("file_browser")
 
 vim.keymap.set('n', '<leader>ff',
-    function()
-        builtin.find_files({
-            no_ignore = false,
-            hidden = true
-        })
-    end)
+	function()
+		builtin.find_files({
+			no_ignore = false,
+			hidden = true
+		})
+	end)
 vim.keymap.set('n', '<leader>fw', function()
-    builtin.live_grep()
+	builtin.live_grep()
 end)
 vim.keymap.set('n', '<leader>fb', function()
-    builtin.buffers()
+	builtin.buffers()
 end)
 
 vim.keymap.set('n', '<leader>fb', function()
-    builtin.buffers()
+	builtin.buffers()
 end)
 
 vim.keymap.set('n', '<leader>fh', function()
-    builtin.help_tags()
+	builtin.help_tags()
 end)
 
 vim.keymap.set('n', '<leader>fs', function()
-    builtin.lsp_workspace_symbols()
+	builtin.lsp_workspace_symbols()
 end)
 
 vim.keymap.set('n', '<leader>ft', function()
-    builtin.colorscheme()
+	builtin.colorscheme()
 end)
 
 vim.keymap.set('n', '<leader>fo', function()
-    builtin.oldfiles()
-end)
-
-vim.keymap.set('n', '<leader>ho', function()
-    harpoon_t.marks()
-end)
-
-vim.keymap.set('n', '<leader>ha', function()
-    require('harpoon.mark').add_file()
+	builtin.oldfiles()
 end)

@@ -1,69 +1,80 @@
-vim.cmd [[packadd packer.nvim]]
+-- Bootstrap Lazy
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
-require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
+require("lazy").setup({
+	'nvim-lualine/lualine.nvim', -- Statusline
+	'nvim-lua/plenary.nvim', -- Common utilities
 
-    use 'nvim-lualine/lualine.nvim' -- Statusline
-    use 'nvim-lua/plenary.nvim'     -- Common utilities
-    use 'arkav/lualine-lsp-progress'
-
-    use 'onsails/lspkind-nvim'            -- lsp pictograms
-    use 'hrsh7th/cmp-buffer'              -- nvim-cmp source for buffer words
-    use 'hrsh7th/cmp-nvim-lsp'            -- nvim-cmp source for neovim's built-in LSP
-    use 'hrsh7th/nvim-cmp'                -- Completion
-    use 'neovim/nvim-lspconfig'           -- LSP
-    use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-    use 'williamboman/mason.nvim'         -- Manage/Install LSPs
-    use 'williamboman/mason-lspconfig.nvim'
-
-    use 'simrat39/rust-tools.nvim'
-    use 'mfussenegger/nvim-dap'
+	-- LSP
+	'onsails/lspkind-nvim',     -- lsp pictograms
+	'hrsh7th/cmp-buffer',       -- nvim-cmp source for buffer words
+	'hrsh7th/cmp-nvim-lsp',     -- nvim-cmp source for neovim's built-in LSP
+	'hrsh7th/nvim-cmp',         -- Completion
+	'neovim/nvim-lspconfig',    -- LSP
+	'jose-elias-alvarez/null-ls.nvim', -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+	'williamboman/mason.nvim',  -- Manage/Install LSPs
+	'williamboman/mason-lspconfig.nvim',
+	'simrat39/rust-tools.nvim',
 
 
-    use 'glepnir/lspsaga.nvim' -- LSP UIs
-    use 'L3MON4D3/LuaSnip'     -- LSP Snippets
-    use {                      -- Syntax highlighting
-        'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    }
-    use {
-        "SmiteshP/nvim-navic",
-        requires = "neovim/nvim-lspconfig"           -- stylize context bar
-    }
-    use 'kyazdani42/nvim-web-devicons'               -- File icons
-    use 'nvim-telescope/telescope.nvim'              -- Finding files
-    use 'nvim-telescope/telescope-file-browser.nvim' -- Better filebrowser
-    use 'ThePrimeagen/harpoon'
+	-- LSP Utils
+	'glepnir/lspsaga.nvim', -- LSP UIs
+	'L3MON4D3/LuaSnip', -- LSP Snippets
+	{                -- Syntax highlighting
+		'nvim-treesitter/nvim-treesitter',
+		build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	},
+	{
+		"SmiteshP/nvim-navic",
+		dependencies = "neovim/nvim-lspconfig" -- stylize context bar
+	},
+	'kyazdani42/nvim-web-devicons',  -- File icons
+	'arkav/lualine-lsp-progress',
 
-    use 'windwp/nvim-autopairs'    -- Pairs for parenthesis, brackets, etc.
-    use 'windwp/nvim-ts-autotag'   -- Pairs for typescript
-    use { 'numToStr/Comment.nvim', -- Smart commenting
-        requires = {
-            'JoosepAlviste/nvim-ts-context-commentstring'
-        }
-    }
-    use 'tpope/vim-abolish'
-    use "folke/todo-comments.nvim"
+	-- Navigation
+	'nvim-telescope/telescope.nvim',       -- Finding files
+	'nvim-telescope/telescope-file-browser.nvim', -- Better filebrowser
+	"alexghergh/nvim-tmux-navigation",     -- Tmux-vim integration
+	{ 'nvim-tree/nvim-tree.lua', lazy = false }, -- File tree
 
-    use({
-        -- Preview markdown files
-        "iamcco/markdown-preview.nvim",
-        run = "cd app && yarn install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-        ft = { "markdown" },
-    })
+	-- Mappings
+	'windwp/nvim-autopairs', -- Pairs for parenthesis, brackets, etc.
+	'windwp/nvim-ts-autotag', -- Pairs for typescript
+	{
+		'numToStr/Comment.nvim', -- Smart commenting
+		dependencies = {
+			'JoosepAlviste/nvim-ts-context-commentstring'
+		}
+	},
+	{
+		-- Preview markdown files
+		"iamcco/markdown-preview.nvim",
+		build = "cd app && yarn install",
+		init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+		ft = { "markdown" },
+	},
+	'tpope/vim-abolish',
+	"folke/todo-comments.nvim",
 
-    use 'lewis6991/gitsigns.nvim' -- Number column git signs
-    use 'dinhhuy258/git.nvim'     -- For git blame & browse
-    use 'kdheepak/lazygit.nvim'
+	-- Git Integration
+	'lewis6991/gitsigns.nvim', -- Number column git signs
+	'dinhhuy258/git.nvim', -- For git blame & browse
+	'kdheepak/lazygit.nvim',
 
-    use { "alexghergh/nvim-tmux-navigation" } -- Tmux-vim integration
-    use 'nvim-tree/nvim-tree.lua'             -- File tree
-
-    use 'xiyaowong/transparent.nvim'          -- Transparent backgrounds
-    --
-    -- Color themes
-    use 'rose-pine/neovim'
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use 'Shatur/neovim-ayu'
-end)
+	-- Highlights/Color Themes
+	'rose-pine/neovim',
+	{ "catppuccin/nvim",         name = "catppuccin" },
+	'Shatur/neovim-ayu',
+	'xiyaowong/transparent.nvim', -- Transparent backgrounds
+})
