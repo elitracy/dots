@@ -18,12 +18,30 @@ cmp.setup({
         }),
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'buffer' },
+        { name = 'path' },                                       -- file paths
+        { name = 'nvim_lsp',               keyword_length = 3 }, -- from language server
+        { name = 'nvim_lsp_signature_help' },                    -- display function signatures with current parameter emphasized
+        { name = 'nvim_lua',               keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
+        { name = 'buffer',                 keyword_length = 2 }, -- source current buffer
+        { name = 'luasnip',                keyword_length = 2 }, -- snippets from luasnip
+        { name = 'calc' },                                       -- source for math calculation
     }),
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
     formatting = {
         format = lspkind.cmp_format({
-            maxwidth = 50,
+            mode = 'symbol',       -- show only symbol annotations
+            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            before = function(entry, item)
+                item.abbr = string.sub(item.abbr, 1, 20)
+                return item
+            end
         })
     },
 })

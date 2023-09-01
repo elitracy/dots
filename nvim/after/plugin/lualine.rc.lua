@@ -9,11 +9,20 @@ require('lualine').setup {
     sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch' },
-        lualine_c = { {
-            'filename',
-            file_status = true, -- displays file status (readonly status, modified status)
-            path = 1            -- 0 = just filename, 1 = relative path, 2 = absolute path
-        } },
+        lualine_c = {
+            {
+                'filename',
+                file_status = true, -- displays file status (readonly status, modified status)
+                path = 1            -- 0 = just filename, 1 = relative path, 2 = absolute path
+            },
+            {
+                'lsp_progress',
+                display_components = { 'lsp_client_name', 'spinner', { 'percentage' } },
+                spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
+                timer = { progress_enddelay = 100, spinner = 100, lsp_client_name_enddelay = 100 },
+                colors = { use = true }
+            },
+        },
         lualine_x = {
             {
                 'diagnostics',

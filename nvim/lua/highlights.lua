@@ -2,9 +2,9 @@ local opt = vim.opt
 
 opt.cursorline = true
 opt.termguicolors = true
-opt.winblend = 10
+opt.winblend = 0
 opt.wildoptions = 'pum'
-opt.pumblend = 10
+opt.pumblend = 0
 opt.background = 'dark'
 
 -- highlight yanked text for 200ms using the "Visual" highlight group

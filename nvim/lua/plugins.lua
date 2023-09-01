@@ -3,8 +3,9 @@ vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'nvim-lualine/lualine.nvim'       -- Statusline
-    use 'nvim-lua/plenary.nvim'           -- Common utilities
+    use 'nvim-lualine/lualine.nvim' -- Statusline
+    use 'nvim-lua/plenary.nvim'     -- Common utilities
+    use 'arkav/lualine-lsp-progress'
 
     use 'onsails/lspkind-nvim'            -- lsp pictograms
     use 'hrsh7th/cmp-buffer'              -- nvim-cmp source for buffer words
@@ -14,6 +15,10 @@ require('packer').startup(function(use)
     use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use 'williamboman/mason.nvim'         -- Manage/Install LSPs
     use 'williamboman/mason-lspconfig.nvim'
+
+    use 'simrat39/rust-tools.nvim'
+    use 'mfussenegger/nvim-dap'
+
 
     use 'glepnir/lspsaga.nvim' -- LSP UIs
     use 'L3MON4D3/LuaSnip'     -- LSP Snippets
