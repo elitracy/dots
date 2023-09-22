@@ -30,31 +30,32 @@ local on_attach = function(_, bufnr)
     -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
-protocol.CompletionItemKind = { '', -- Text
-    '',                           -- Method
-    '',                           -- Function
-    '',                           -- Constructor
-    '',                           -- Field
-    '',                           -- Variable
-    '',                           -- Class
-    'ﰮ',                           -- Interface
-    '',                           -- Module
-    '',                           -- Property
-    '',                           -- Unit
-    '',                           -- Value
-    '',                           -- Enum
-    '',                           -- Keyword
-    '﬌',                           -- Snippet
-    '',                           -- Color
-    '',                           -- File
-    '',                           -- Reference
-    '',                           -- Folder
-    '',                           -- EnumMember
-    '',                           -- Constant
-    '',                           -- Struct
-    '',                           -- Event
-    'ﬦ',                           -- Operator
-    '',                           -- TypeParameter
+protocol.CompletionItemKind = {
+    '', -- Text
+    '', -- Method
+    '', -- Function
+    '', -- Constructor
+    '', -- Field
+    '', -- Variable
+    '', -- Class
+    'ﰮ', -- Interface
+    '', -- Module
+    '', -- Property
+    '', -- Unit
+    '', -- Value
+    '', -- Enum
+    '', -- Keyword
+    '﬌', -- Snippet
+    '', -- Color
+    '', -- File
+    '', -- Reference
+    '', -- Folder
+    '', -- EnumMember
+    '', -- Constant
+    '', -- Struct
+    '', -- Event
+    'ﬦ', -- Operator
+    '', -- TypeParameter
 }
 
 -- Set up completion using nvim_cmp with LSP source
@@ -136,6 +137,14 @@ nvim_lsp.svelte.setup {
 }
 
 nvim_lsp.rust_analyzer.setup {
+    on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        enable_format_on_save(client, bufnr)
+    end,
+    capabilities = capabilities,
+}
+
+nvim_lsp.html.setup {
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
         enable_format_on_save(client, bufnr)
