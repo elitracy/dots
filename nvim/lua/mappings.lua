@@ -1,6 +1,8 @@
 local map = vim.keymap
 
 map.set('n', 'x', '"_x')
+map.set('n', '<c-d>', '<c-d>zzz')
+map.set('n', '<c-u>', '<c-u>zzz')
 
 -- Select all
 map.set('n', '<C-a>', 'gg<S-v>G')
@@ -26,9 +28,9 @@ map.set('n', '<leader>s<left>', '<C-w><')
 map.set('n', '<leader>s<right>', '<C-w>>')
 map.set('n', '<leader>s<up>', '<C-w>+')
 map.set('n', '<leader>s<down>', '<C-w>-')
-
 map.set('n', '<leader>s=', '<C-w>=')
 
+-- LSP
 map.set('n', '<leader>ll', '<cmd>LspLog <CR> | G')
 map.set('n', '<leader>lr', '<cmd>LspRestart <CR>')
 map.set('n', '<leader>li', '<cmd>LspInfo <CR>')

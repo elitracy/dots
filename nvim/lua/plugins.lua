@@ -25,7 +25,6 @@ require("lazy").setup({
     'jose-elias-alvarez/null-ls.nvim', -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     'williamboman/mason.nvim',         -- Manage/Install LSPs
     'williamboman/mason-lspconfig.nvim',
-    'simrat39/rust-tools.nvim',
 
 
     -- LSP Utils
@@ -35,12 +34,8 @@ require("lazy").setup({
         'nvim-treesitter/nvim-treesitter',
         build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     },
-    {
-        "SmiteshP/nvim-navic",
-        dependencies = "neovim/nvim-lspconfig" -- stylize context bar
-    },
-    'kyazdani42/nvim-web-devicons',            -- File icons
-    'arkav/lualine-lsp-progress',
+
+    'kyazdani42/nvim-web-devicons', -- File icons
 
     -- Navigation
     'nvim-telescope/telescope.nvim',              -- Finding files
@@ -57,15 +52,7 @@ require("lazy").setup({
             'JoosepAlviste/nvim-ts-context-commentstring'
         }
     },
-    {
-        -- Preview markdown files
-        "iamcco/markdown-preview.nvim",
-        build = "cd app && yarn install",
-        init = function() vim.g.mkdp_filetypes = { "markdown" } end,
-        ft = { "markdown" },
-    },
     'tpope/vim-abolish',
-    "folke/todo-comments.nvim",
 
     -- Git Integration
     'lewis6991/gitsigns.nvim', -- Number column git signs
@@ -77,5 +64,4 @@ require("lazy").setup({
     { "catppuccin/nvim",         name = "catppuccin" },
     'Shatur/neovim-ayu',
     "nyoom-engineering/oxocarbon.nvim",
-    'xiyaowong/transparent.nvim', -- Transparent backgrounds
 })
