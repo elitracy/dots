@@ -15,4 +15,4 @@ vim.cmd [[
   augroup END
 ]]
 
-vim.cmd('colorscheme rose-pine-main')
+vim.cmd('colorscheme nord')

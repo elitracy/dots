@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     'nvim-lualine/lualine.nvim', -- Statusline
+    { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
     'nvim-lua/plenary.nvim',     -- Common utilities
 
     -- LSP
@@ -25,6 +26,14 @@ require("lazy").setup({
     'jose-elias-alvarez/null-ls.nvim', -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     'williamboman/mason.nvim',         -- Manage/Install LSPs
     'williamboman/mason-lspconfig.nvim',
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    },
 
 
     -- LSP Utils
@@ -34,13 +43,13 @@ require("lazy").setup({
         'nvim-treesitter/nvim-treesitter',
         build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     },
-
-    'kyazdani42/nvim-web-devicons', -- File icons
+    'JoosepAlviste/nvim-ts-context-commentstring',
 
     -- Navigation
     'nvim-telescope/telescope.nvim',              -- Finding files
     'nvim-telescope/telescope-file-browser.nvim', -- Better filebrowser
     "alexghergh/nvim-tmux-navigation",            -- Tmux-vim integration
+    "aserowy/tmux.nvim",
     { 'nvim-tree/nvim-tree.lua', lazy = false },  -- File tree
 
     -- Mappings
@@ -48,9 +57,6 @@ require("lazy").setup({
     'windwp/nvim-ts-autotag',    -- Pairs for typescript
     {
         'numToStr/Comment.nvim', -- Smart commenting
-        dependencies = {
-            'JoosepAlviste/nvim-ts-context-commentstring'
-        }
     },
     'tpope/vim-abolish',
 
@@ -60,8 +66,16 @@ require("lazy").setup({
     'kdheepak/lazygit.nvim',
 
     -- Highlights/Color Themes
+    'xiyaowong/transparent.nvim',
     'rose-pine/neovim',
-    { "catppuccin/nvim",         name = "catppuccin" },
+    { "catppuccin/nvim", name = "catppuccin" },
     'Shatur/neovim-ayu',
     "nyoom-engineering/oxocarbon.nvim",
+    "rebelot/kanagawa.nvim",
+    'olivercederborg/poimandres.nvim',
+    'sainnhe/everforest',
+    'alexvzyl/nordic.nvim',
+    'sainnhe/gruvbox-material',
+    'shaunsingh/nord.nvim'
+
 })

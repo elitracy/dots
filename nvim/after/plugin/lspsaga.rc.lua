@@ -4,9 +4,15 @@ require('lspsaga').setup({
         winblend = 0,
         border = 'rounded',
     },
-    symbol_in_winbar = {
+    lightbulb = {
         enable = false
     },
+    symbol_in_winbar = {
+        enable = true
+    },
+    -- outline = {
+    --     layout = 'float'
+    -- }
 })
 
 -- local diagnostic = require("lspsaga.diagnostic")
@@ -14,6 +20,7 @@ require('lspsaga').setup({
 local opts = { noremap = true, silent = true }
 local map = vim.keymap
 
+local diagnostic = require("lspsaga.diagnostic")
 map.set('n', ']d', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 map.set('n', '[d', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
 map.set('n', 'gl', '<Cmd>Lspsaga show_line_diagnostics<CR>', opts)

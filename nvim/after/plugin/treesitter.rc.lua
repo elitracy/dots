@@ -17,9 +17,6 @@ require('nvim-treesitter.configs').setup({
         additional_vim_regex_highlighting = false
     },
     autotag = { enable = true, },
-    context_commentstring = {
-        enable = true,
-    },
 })
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
