@@ -15,4 +15,4 @@ vim.cmd [[
   augroup END
 ]]
 
-vim.cmd('colorscheme nord')
+vim.cmd('colorscheme seoulbones')

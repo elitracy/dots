@@ -13,28 +13,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    'nvim-lualine/lualine.nvim', -- Statusline
-    { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
-    'nvim-lua/plenary.nvim',     -- Common utilities
+    -- 'nvim-lualine/lualine.nvim', -- Statusline
+    'nvim-lua/plenary.nvim', -- Common utilities
+    'tpope/vim-abolish',
 
     -- LSP
-    'onsails/lspkind-nvim',            -- lsp pictograms
-    'hrsh7th/cmp-buffer',              -- nvim-cmp source for buffer words
-    'hrsh7th/cmp-nvim-lsp',            -- nvim-cmp source for neovim's built-in LSP
-    'hrsh7th/nvim-cmp',                -- Completion
-    'neovim/nvim-lspconfig',           -- LSP
-    'jose-elias-alvarez/null-ls.nvim', -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-    'williamboman/mason.nvim',         -- Manage/Install LSPs
+    'onsails/lspkind-nvim',    -- lsp pictograms
+    'hrsh7th/cmp-buffer',      -- nvim-cmp source for buffer words
+    'hrsh7th/cmp-nvim-lsp',    -- nvim-cmp source for neovim's built-in LSP
+    'hrsh7th/nvim-cmp',        -- Completion
+    'neovim/nvim-lspconfig',   -- LSP
+    'williamboman/mason.nvim', -- Manage/Install LSPs
     'williamboman/mason-lspconfig.nvim',
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
-        }
-    },
-
 
     -- LSP Utils
     'glepnir/lspsaga.nvim', -- LSP UIs
@@ -43,39 +33,27 @@ require("lazy").setup({
         'nvim-treesitter/nvim-treesitter',
         build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     },
-    'JoosepAlviste/nvim-ts-context-commentstring',
+
+    -- UI
+    'nvim-telescope/telescope.nvim', -- Finding files
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
 
     -- Navigation
-    'nvim-telescope/telescope.nvim',              -- Finding files
-    'nvim-telescope/telescope-file-browser.nvim', -- Better filebrowser
-    "alexghergh/nvim-tmux-navigation",            -- Tmux-vim integration
     "aserowy/tmux.nvim",
-    { 'nvim-tree/nvim-tree.lua', lazy = false },  -- File tree
 
     -- Mappings
-    'windwp/nvim-autopairs',     -- Pairs for parenthesis, brackets, etc.
-    'windwp/nvim-ts-autotag',    -- Pairs for typescript
-    {
-        'numToStr/Comment.nvim', -- Smart commenting
-    },
-    'tpope/vim-abolish',
+    'windwp/nvim-autopairs',  -- Pairs for parenthesis, brackets, etc.
+    'windwp/nvim-ts-autotag', -- Pairs for typescript
+    'numToStr/Comment.nvim',  -- Smart commenting
 
     -- Git Integration
     'lewis6991/gitsigns.nvim', -- Number column git signs
-    'dinhhuy258/git.nvim',     -- For git blame & browse
     'kdheepak/lazygit.nvim',
 
     -- Highlights/Color Themes
     'xiyaowong/transparent.nvim',
-    'rose-pine/neovim',
-    { "catppuccin/nvim", name = "catppuccin" },
-    'Shatur/neovim-ayu',
-    "nyoom-engineering/oxocarbon.nvim",
-    "rebelot/kanagawa.nvim",
-    'olivercederborg/poimandres.nvim',
-    'sainnhe/everforest',
-    'alexvzyl/nordic.nvim',
-    'sainnhe/gruvbox-material',
-    'shaunsingh/nord.nvim'
-
+    { 'mcchrish/zenbones.nvim', dependencies = { 'rktjmp/lush.nvim' } },
 })

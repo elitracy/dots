@@ -77,14 +77,6 @@ nvim_lsp.cssls.setup {
     capabilities = capabilities
 }
 
-nvim_lsp.prismals.setup {
-    on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-        enable_format_on_save(client, bufnr)
-    end,
-    capabilities = capabilities
-}
-
 nvim_lsp.marksman.setup {
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
@@ -109,13 +101,6 @@ nvim_lsp.svelte.setup {
     capabilities = capabilities
 }
 
-nvim_lsp.rust_analyzer.setup {
-    on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-        enable_format_on_save(client, bufnr)
-    end,
-    capabilities = capabilities,
-}
 
 nvim_lsp.html.setup {
     on_attach = function(client, bufnr)
@@ -125,23 +110,7 @@ nvim_lsp.html.setup {
     capabilities = capabilities,
 }
 
-nvim_lsp.asm_lsp.setup {
-    on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-        enable_format_on_save(client, bufnr)
-    end,
-    capabilities = capabilities,
-}
-
 nvim_lsp.pyright.setup {
-    on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-        enable_format_on_save(client, bufnr)
-    end,
-    capabilities = capabilities,
-}
-
-nvim_lsp.glsl_analyzer.setup {
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
         enable_format_on_save(client, bufnr)
