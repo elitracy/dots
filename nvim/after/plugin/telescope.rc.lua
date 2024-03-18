@@ -47,3 +47,5 @@ vim.keymap.set('n', '<leader>fo', function() builtin.oldfiles() end)
 vim.keymap.set('n', '<leader>fs', function() builtin.lsp_document_symbols() end)
 
 vim.keymap.set('n', '<leader>fd', function() builtin.lsp_definitions() end)
+
+vim.keymap.set('n', '<leader>fm', function() builtin.man_pages() end)

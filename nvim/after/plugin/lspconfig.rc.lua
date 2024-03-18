@@ -118,6 +118,14 @@ nvim_lsp.pyright.setup {
     capabilities = capabilities,
 }
 
+nvim_lsp.hls.setup {
+    on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        enable_format_on_save(client, bufnr)
+    end,
+    capabilities = capabilities,
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         underline = true,
