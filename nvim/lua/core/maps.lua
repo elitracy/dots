@@ -23,11 +23,12 @@ map.set('n', '<S-tab>', '<CMD> tabNext <CR>')
 map.set('n', '<leader>sv', '<CMD> vsplit <CR>')
 map.set('n', '<leader>ss', '<CMD> split <CR>')
 
--- Navigate panes
-map.set('n', '<C-h>', '<CMD> NvimTmuxNavigateLeft <CR>')
-map.set('n', '<C-j>', '<CMD> NvimTmuxNavigateDown <CR>')
-map.set('n', '<C-k>', '<CMD> NvimTmuxNavigateUp <CR>')
-map.set('n', '<C-l>', '<CMD> NvimTmuxNavigateRight <CR>')
+-- Navigation
+map.set('n', '<C-h>', '<C-w>h')
+map.set('n', '<C-j>', '<C-w>j')
+map.set('n', '<C-k>', '<C-w>k')
+map.set('n', '<C-l>', '<C-w>l')
+
 
 -- Resize pane
 map.set('n', '<leader>s<left>', '<C-w><')
