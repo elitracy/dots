@@ -15,4 +15,4 @@ vim.cmd [[
   augroup END
 ]]
 
-vim.cmd('colorscheme seoulbones')
+vim.cmd('colorscheme catppuccin-mocha')

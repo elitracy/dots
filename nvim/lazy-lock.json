@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "f3b3d3446bcbfa62d638b1903ff00a78b2b730a1" },
+  "catppuccin": { "branch": "main", "commit": "f66654d5d5190865333e8e46474c1593302c558e" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
   "gitsigns.nvim": { "branch": "main", "commit": "2c2463dbd82eddd7dbab881c3a62cfbfbe3c67ae" },
@@ -18,8 +19,8 @@
   "nvim-treesitter": { "branch": "master", "commit": "c2a265156d5799adbd9f9e7d5385735fa5d21776" },
   "nvim-ts-autotag": { "branch": "main", "commit": "531f48334c422222aebc888fd36e7d109cb354cd" },
   "nvim-web-devicons": { "branch": "master", "commit": "69fb193abc547c77be089c3e392d5fd6fcd3625a" },
+  "oil.nvim": { "branch": "master", "commit": "e462a3446505185adf063566f5007771b69027a1" },
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
-  "spaceduck": { "branch": "main", "commit": "350491f19343b24fa85809242089caa02d4dadce" },
   "telescope.nvim": { "branch": "master", "commit": "aa83606299c5beeaf80e656efbf07bde258db7be" },
   "tmux.nvim": { "branch": "main", "commit": "9c02adf16ff2f18c8e236deba91e9cf4356a02d2" },
   "transparent.nvim": { "branch": "main", "commit": "fd35a46f4b7c1b244249266bdcb2da3814f01724" },

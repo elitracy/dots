@@ -40,6 +40,12 @@ require("lazy").setup({
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 
     -- Navigation
     "aserowy/tmux.nvim",
@@ -56,4 +62,5 @@ require("lazy").setup({
     -- Highlights/Color Themes
     'xiyaowong/transparent.nvim',
     { 'mcchrish/zenbones.nvim', dependencies = { 'rktjmp/lush.nvim' } },
+    { "catppuccin/nvim",        name = "catppuccin",                  priority = 1000 },
 })
