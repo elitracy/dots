@@ -1,4 +1,6 @@
-require("plugins")
-require("maps")
-require("options")
-require("highlights")
+vim.g.mapleader = " "
+
+require("core/plugins")
+require("core/maps")
+require("core/options")
+require("core/highlights")
