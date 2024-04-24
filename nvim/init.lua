@@ -1,7 +1,4 @@
-vim.g.mapleader = " "
-
-require('plugins')
-require('mappings')
-require('options')
-require('highlights')
-
+require("plugins")
+require("maps")
+require("options")
+require("highlights")
