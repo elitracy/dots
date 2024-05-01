@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
-require("core/plugins")
-require("core/maps")
-require("core/options")
-require("core/highlights")
+require("elias")
+-- require("core.plugins")
+-- require("core.options")
+-- require("core.maps")
+-- require("core.highlights")
