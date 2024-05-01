@@ -29,5 +29,10 @@ return {
         end
     },
     { "bluz71/vim-moonfly-colors", },
-    { 'ellisonleao/gruvbox.nvim', }
+    { 'ellisonleao/gruvbox.nvim', },
+    {
+        "fynnfluegge/monet.nvim",
+        name = "monet",
+    }
+
 }

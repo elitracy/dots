@@ -1,11 +1,48 @@
 return {
-    'wfxr/minimap.vim',
-    dependencies = { "wfxr/code-minimap" },
-    build = ':!cargo install --locked code-minimap',
-    init = function()
-        vim.g.minimap_width = 10
-        vim.g.minimap_auto_start = 1
-        vim.g.minimap_start_win_enter = 1
-        vim.g.minimap_git_colors = 1
+    'echasnovski/mini.map',
+    version = '*',
+    config = function()
+        local MiniMap = require("mini.map").setup(
+        -- No need to copy this inside `setup()`. Will be used automatically.
+            {
+                -- Highlight integrations (none by default)
+                integrations = nil,
+
+                -- Symbols used to display data
+                symbols = {
+                    -- Encode symbols. See `:h MiniMap.config` for specification and
+                    -- `:h MiniMap.gen_encode_symbols` for pre-built ones.
+                    -- Default: solid blocks with 3x2 resolution.
+                    encode = nil,
+
+                    -- Scrollbar parts for view and line. Use empty string to disable any.
+                    scroll_line = '█',
+                    scroll_view = '┃',
+                },
+
+                -- Window options
+                window = {
+                    -- Whether window is focusable in normal way (with `wincmd` or mouse)
+                    focusable = false,
+                    -- Side to stick ('left' or 'right')
+                    side = 'right',
+                    -- Whether to show count of multiple integration highlights
+                    show_integration_count = true,
+                    -- Total width
+                    width = 10,
+                    -- Value of 'winblend' option
+                    winblend = 25,
+                    -- Z-index
+                    zindex = 10,
+                },
+            }
+        )
+
+        -- vim.keymap.set('n', '<Leader>mc', MiniMap.close)
+        -- vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus)
+        -- vim.keymap.set('n', '<Leader>mo', MiniMap.open)
+        -- vim.keymap.set('n', '<Leader>mr', MiniMap.refresh)
+        -- vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side)
+        -- vim.keymap.set('n', '<Leader>mt', MiniMap.toggle)
     end
 }
