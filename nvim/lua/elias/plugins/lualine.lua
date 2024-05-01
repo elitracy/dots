@@ -1,5 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
+    dependencies = { "arkav/lualine-lsp-progress" },
     init = function()
         vim.g.lualine_laststatus = vim.o.laststatus
         if vim.fn.argc(-1) > 0 then
@@ -40,11 +41,17 @@ return {
                 },
                 lualine_x = {
                     {
+                        "lsp_progress",
+                        display_components = { 'lsp_client_name', "spinner", { 'percentage' } },
+                        timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 500 },
+
+                    },
+                    {
                         "diff",
                         symbols = {
-                            added = "",
-                            modified = "󰏫",
-                            removed = ""
+                            added = " ",
+                            modified = "󰏫 ",
+                            removed = " "
                         },
                         source = function()
                             local gitsigns = vim.b.gitsigns_status_dict
