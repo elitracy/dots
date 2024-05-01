@@ -24,10 +24,11 @@ map.set('n', '<leader>sv', '<CMD> vsplit <CR>')
 map.set('n', '<leader>ss', '<CMD> split <CR>')
 
 -- Navigation
-map.set('n', '<C-h>', '<C-w>h')
-map.set('n', '<C-j>', '<C-w>j')
-map.set('n', '<C-k>', '<C-w>k')
-map.set('n', '<C-l>', '<C-w>l')
+-- (not needed with tmux plugin)
+-- map.set('n', '<C-h>', '<C-w>h')
+-- map.set('n', '<C-j>', '<C-w>j')
+-- map.set('n', '<C-k>', '<C-w>k')
+-- map.set('n', '<C-l>', '<C-w>l')
 
 
 -- Resize pane
@@ -45,6 +46,12 @@ map.set('t', '<C-h>', '<C-\\><CMD> NvimTmuxNavigateLeft <CR>')
 map.set('t', '<C-j>', '<C-\\><CMD> NvimTmuxNavigateDown <CR>')
 map.set('t', '<C-k>', '<C-\\><CMD> NvimTmuxNavigateUp <CR>')
 map.set('t', '<C-l>', '<C-\\><CMD> NvimTmuxNavigateRight <CR>')
+
+-- LSP map
+map.set('n', '<leader>li', '<CMD> LspInfo <CR>')
+map.set('n', '<leader>lr', '<CMD> LspRestart <CR>')
+map.set('n', '<leader>ll', '<CMD> LspLog <CR>')
+
 
 vim.api.nvim_create_autocmd({ 'TermOpen' }, {
     pattern = { "term://*" },

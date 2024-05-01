@@ -29,9 +29,7 @@ return {
             --       end
             --   end , -- this sorts files and directories descendantly
             default_component_configs = {
-                container = {
-                    enable_character_fade = true
-                },
+                container = { enable_character_fade = true },
                 indent = {
                     indent_size = 2,
                     padding = 1, -- extra padding on left hand side
@@ -106,7 +104,7 @@ return {
             commands = {},
             window = {
                 position = "left",
-                width = 40,
+                width = 30,
                 mapping_options = {
                     noremap = true,
                     nowait = true,
