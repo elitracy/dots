@@ -6,7 +6,7 @@ opt.encoding = 'utf8'
 opt.fileencoding = 'utf8'
 
 opt.number = true
-opt.rnu = false
+opt.rnu = true
 
 opt.title = true
 opt.autoindent = true

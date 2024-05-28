@@ -1,4 +1,4 @@
-return {
+return { {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
@@ -280,6 +280,31 @@ return {
                 }
             }
         })
-        vim.keymap.set("n", "\\", "<CMD>Neotree toggle last<CR>")
+        vim.keymap.set("n", "\\", "<CMD>Neotree toggle last position=right<CR> | <C-w>=")
     end
+},
+    {
+        "hedyhli/outline.nvim",
+        config = function()
+            require("outline").setup {
+                outline_window = {
+                    split_command = "belowright split",
+                    width = 20,
+                    focus_on_open = false,
+                    show_symbol_details = false,
+                    -- symbols = {
+                    --     -- filter = { 'String', 'Variable', exclude = true }
+                    -- }
+                },
+
+            }
+            -- Example mapping to toggle outline
+            -- vim.keymap.set("n", "\\", function()
+            --     vim.cmd("Neotree toggle last position=right")
+            --     vim.cmd("Outline")
+            -- end)
+
+            vim.keymap.set("n", "<leader>O", "<CMD> Outline <CR>")
+        end,
+    }
 }

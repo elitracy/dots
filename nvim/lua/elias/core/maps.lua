@@ -15,9 +15,9 @@ map.set('n', '<C-a>', 'gg<S-v>G')
 
 -- Tab navigation
 map.set('n', '<leader>b', '<CMD> tabedit <CR>')
-map.set('n', '<leader>x', '<CMD> tabclose <CR>')
-map.set('n', '<tab>', '<CMD> tabnext <CR>')
-map.set('n', '<S-tab>', '<CMD> tabNext <CR>')
+-- map.set('n', '<leader>x', '<CMD> tabclose <CR>')
+-- map.set('n', '<tab>', '<CMD> tabnext <CR>')
+-- map.set('n', '<S-tab>', '<CMD> tabNext <CR>')
 
 -- Splits
 map.set('n', '<leader>sv', '<CMD> vsplit <CR>')

@@ -27,9 +27,9 @@ return {
                 },
                 sources = {
                     { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
                     { name = 'buffer' },
                     { name = 'path' },
+                    { name = 'luasnip' },
                 },
                 mapping = {
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
@@ -64,7 +64,7 @@ return {
                 formatting = {
                     format = lspkind.cmp_format({
                         mode = 'symbol_text',
-                        maxwidth = 50,
+                        maxwidth = 80,
                         ellipsis_char = '...',
                         show_labelDetails = true,
                         before = function(entry, vim_item)

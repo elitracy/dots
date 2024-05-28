@@ -19,8 +19,9 @@ return {
                 -- to learn the available actions
                 lsp_zero.default_keymaps({ buffer = bufnr })
                 lsp_zero.async_autoformat(client, bufnr)
-            end)
 
+                vim.keymap.set("n", "<leader>ga", function() vim.lsp.buf.rename() end)
+            end)
 
 
             require('mason').setup({})
@@ -46,6 +47,24 @@ return {
                                     },
                                 },
                             },
+                        })
+
+                        require("lspconfig").clangd.setup({
+                            cmd = {
+                                "/opt/homebrew/opt/llvm/bin/clangd",
+                                "--background-index",
+                                "--pch-storage=memory",
+                                "--all-scopes-completion",
+                                "--pretty",
+                                "--header-insertion=never",
+                                "-j=4",
+                                "--inlay-hints",
+                                "--header-insertion-decorators",
+                                "--function-arg-placeholders",
+                                "--completion-style=detailed" },
+
+                            root_dir = require('lspconfig').util.root_pattern("src"),
+                            init_option = { fallbackFlags = { "-std=c++2a" } },
                         })
                     end
 

@@ -7,6 +7,8 @@ opt.wildoptions = 'pum'
 opt.pumblend = 0
 opt.background = 'dark'
 
+vim.api.nvim_set_hl(0, "WinSeparator", { ctermfg = "Gray", ctermbg = "Black" })
+
 -- highlight yanked text for 200ms using the "Visual" highlight group
 vim.cmd [[
   augroup highlight_yank
