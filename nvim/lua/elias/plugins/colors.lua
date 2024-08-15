@@ -3,6 +3,9 @@ return {
         "oxfist/night-owl.nvim",
         lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            -- require("night-owl").setup()
+        end
     },
     {
         "scottmckendry/cyberdream.nvim",
@@ -17,6 +20,7 @@ return {
                 borderless_telescope = true,
                 terminal_colors = true,
             })
+            vim.cmd("colorscheme cyberdream")
         end,
     },
     {
@@ -24,15 +28,21 @@ return {
         lazy = false,
         priority = 1000,
         opts = {},
-        config = function()
-            vim.cmd("colorscheme tokyonight-moon")
-        end
     },
     { "bluz71/vim-moonfly-colors", },
     { 'ellisonleao/gruvbox.nvim', },
     {
         "fynnfluegge/monet.nvim",
         name = "monet",
+    },
+
+    {
+        "diegoulloao/neofusion.nvim",
+        priority = 1000,
+        opts = ...
+    },
+    {
+        "rebelot/kanagawa.nvim",
     }
 
 }

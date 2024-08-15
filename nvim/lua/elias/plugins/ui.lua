@@ -13,6 +13,10 @@ return { {
     },
     config = function()
         require("neo-tree").setup({
+            disabled_filetypes = {
+                statusline = { 'neo-tree' },
+                winbar = { 'neo-tree' },
+            },
             close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
             popup_border_style = "rounded",
             enable_git_status = true,

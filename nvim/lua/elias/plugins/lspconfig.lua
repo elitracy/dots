@@ -6,6 +6,7 @@ return {
         branch = 'v3.x',
         config = function()
             local lsp_zero = require('lsp-zero')
+            lsp_zero.extend_lspconfig()
 
             lsp_zero.set_sign_icons({
                 error = ' ',
@@ -15,12 +16,18 @@ return {
             })
 
             lsp_zero.on_attach(function(client, bufnr)
-                -- see :help lsp-zero-keybindings
-                -- to learn the available actions
-                lsp_zero.default_keymaps({ buffer = bufnr })
                 lsp_zero.async_autoformat(client, bufnr)
 
-                vim.keymap.set("n", "<leader>ga", function() vim.lsp.buf.rename() end)
+                -- lsp_zero.default_keymaps({ buffer = bufnr })
+                vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { buffer = bufnr })
+                vim.keymap.set({ 'n', 'i' }, '<c-k>', function() vim.lsp.buf.signature_help() end, { buffer = bufnr })
+                vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, { buffer = bufnr })
+                vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { buffer = bufnr })
+                vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, { buffer = bufnr })
+                vim.keymap.set('n', 'gr', function() vim.lsp.buf.rename() end, { buffer = bufnr })
+                vim.keymap.set('n', 'ca', function() vim.lsp.buf.code_action() end, { buffer = bufnr })
+                vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, { buffer = bufnr })
+                vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, { buffer = bufnr })
             end)
 
 
@@ -36,12 +43,10 @@ return {
                             settings = {
                                 Lua = {
                                     diagnostics = {
-                                        -- Get the language server to recognize the `vim` global
                                         globals = { 'vim' },
                                     },
 
                                     workspace = {
-                                        -- Make the server aware of Neovim runtime files
                                         library = vim.api.nvim_get_runtime_file("", true),
                                         checkThirdParty = false
                                     },
@@ -66,8 +71,25 @@ return {
                             root_dir = require('lspconfig').util.root_pattern("src"),
                             init_option = { fallbackFlags = { "-std=c++2a" } },
                         })
-                    end
 
+                        require("lspconfig").hls.setup({
+                            cmd = {
+                                "/opt/homebrew/Cellar/haskell-language-server/2.8.0.0/bin/haskell-language-server-wrapper",
+                                "lsp"
+                            },
+                        })
+
+                        require("lspconfig").sourcekit.setup({
+                            capabilities = {
+                                workspace = {
+                                    didChangeWatchedFiles = {
+                                        dynamicRegistration = true,
+                                    },
+                                },
+                            },
+
+                        })
+                    end
                 },
             })
         end
