@@ -34,8 +34,8 @@ return {
                 mapping = {
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
                     ['<C-Space>'] = cmp.mapping.complete(),
-                    ['<C-k>'] = cmp.mapping.scroll_docs(-4),
-                    ['<C-j>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-w>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-b>'] = cmp.mapping.scroll_docs(4),
                     ['<C-d>'] = cmp_action.luasnip_jump_forward(),
                     ['<C-f>'] = cmp_action.luasnip_jump_backward(),
                     ['<Tab>'] = cmp_action.luasnip_supertab(),

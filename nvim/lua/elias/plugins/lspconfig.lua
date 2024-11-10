@@ -53,7 +53,6 @@ return {
                                 },
                             },
                         })
-
                         require("lspconfig").clangd.setup({
                             cmd = {
                                 "/opt/homebrew/opt/llvm/bin/clangd",
@@ -71,7 +70,6 @@ return {
                             root_dir = require('lspconfig').util.root_pattern("src"),
                             init_option = { fallbackFlags = { "-std=c++2a" } },
                         })
-
                         require("lspconfig").hls.setup({
                             cmd = {
                                 "/opt/homebrew/Cellar/haskell-language-server/2.8.0.0/bin/haskell-language-server-wrapper",
@@ -89,6 +87,7 @@ return {
                             },
 
                         })
+                        require("lspconfig").tailwindcss.setup({})
                     end
                 },
             })
