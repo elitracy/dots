@@ -20,6 +20,7 @@ alias c="clear"
 alias v="nvim"
 alias g="git"
 alias b="brew"
+alias dots='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 export PATH=/opt/homebrew/bin:$PATH
 
