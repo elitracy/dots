@@ -1,0 +1,23 @@
+{
+    "name": "Black Bag",
+    "background": "#000000",
+    "foreground": "#D0E8FF",
+    "cursorColor": "#FF8800",
+    "selectionBackground": "#2A5A9A",
+    "black": "#0A0A0A",
+    "red": "#FF6B6B",
+    "green": "#66D9EF",
+    "yellow": "#78B9FF",
+    "blue": "#A0D0FF",
+    "purple": "#A0C5E0",
+    "cyan": "#88EEFF",
+    "white": "#D0E8FF",
+    "brightBlack": "#556677",
+    "brightRed": "#FF6B6B",
+    "brightGreen": "#88EEFF",
+    "brightYellow": "#A0D0FF",
+    "brightBlue": "#A0D0FF",
+    "brightPurple": "#FFFFFF",
+    "brightCyan": "#88EEFF",
+    "brightWhite": "#FFFFFF"
+}

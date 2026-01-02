@@ -1,0 +1,36 @@
+# Black Bag Theme for Ghostty
+# Inspired by the Black Bag movie UI
+# Focused design: light blue/white-blue on black
+# Orange ONLY for primary focus points, light red for accents
+
+# Base colors
+background = #000000
+foreground = #d0e8ff
+
+# Cursor
+cursor-color = #ff8800
+cursor-text = #000000
+
+# Selection
+selection-background = #2a5a9a
+selection-foreground = #ffffff
+
+# Normal colors
+palette = 0=#0a0a0a
+palette = 1=#ff6b6b
+palette = 2=#66d9ef
+palette = 3=#78b9ff
+palette = 4=#a0d0ff
+palette = 5=#a0c5e0
+palette = 6=#88eeff
+palette = 7=#d0e8ff
+
+# Bright colors
+palette = 8=#556677
+palette = 9=#ff6b6b
+palette = 10=#88eeff
+palette = 11=#a0d0ff
+palette = 12=#a0d0ff
+palette = 13=#ffffff
+palette = 14=#88eeff
+palette = 15=#ffffff
